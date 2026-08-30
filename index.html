@@ -4,41 +4,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NAHA 2027 - Sedes en CDMX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  body{font-family:sans-serif; max-width:700px; margin:40px auto; padding:0 20px; color:#222;}
-  h1{color:#1B3A6B;}
-  h2{margin-top:36px; border-bottom:2px solid #eee; padding-bottom:6px;}
-  ul{line-height:1.9;}
+  :root{
+    --stone:#E7E0D1;
+    --paper:#FBF8F1;
+    --ink:#211F2C;
+    --ink-soft:#5B5768;
+    --azul:#1B3A6B;
+    --cochinilla:#9B2242;
+    --ocre:#B9822A;
+    --verde:#3F6B4C;
+    --line:#D8CFB9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--stone);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2{font-family:'Fraunces', serif; font-weight:600;}
+  .talavera-strip{
+    height:14px;
+    background-image:
+      radial-gradient(circle at 7px 7px, var(--azul) 3px, transparent 3.5px),
+      radial-gradient(circle at 21px 7px, var(--ocre) 2px, transparent 2.5px);
+    background-size:28px 14px;
+    background-color:var(--paper);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  header{
+    background:var(--paper);
+    padding:48px 24px 32px;
+  }
+  .header-inner{max-width:760px; margin:0 auto;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:12px;
+    font-weight:600;
+    color:var(--cochinilla);
+    margin-bottom:12px;
+  }
+  h1{font-size:clamp(28px,5vw,44px); margin:0 0 10px; color:var(--azul);}
+  .subtitle{font-size:16px; color:var(--ink-soft); margin:0;}
+  main{max-width:760px; margin:0 auto; padding:32px 24px 80px;}
+  h2{
+    font-size:20px;
+    color:var(--azul);
+    border-bottom:2px solid var(--line);
+    padding-bottom:8px;
+    margin-top:40px;
+  }
+  ul{list-style:none; padding:0; margin:16px 0 0;}
+  li{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 16px;
+    margin-bottom:8px;
+    font-size:15px;
+  }
+  footer{text-align:center; padding:32px 24px; font-size:12px; color:var(--ink-soft);}
 </style>
 </head>
 <body>
 
-<h1>NAHA 2027 - Sedes en Ciudad de Mexico</h1>
-<p>Concentrado de espacios en evaluacion para la conferencia (6-8 de abril de 2027).</p>
+<header>
+  <div class="header-inner">
+    <div class="eyebrow">Comite de Sede - NAHA 2027</div>
+    <h1>Sedes en Ciudad de Mexico</h1>
+    <p class="subtitle">Concentrado de espacios en evaluacion para la conferencia (6-8 de abril de 2027).</p>
+  </div>
+</header>
+<div class="talavera-strip"></div>
 
-<h2>Iconicos</h2>
-<ul>
-  <li>Ex Convento de San Hipolito</li>
-  <li>Palacio Metropolitano</li>
-  <li>Ex Convento Regina</li>
-</ul>
+<main>
 
-<h2>Hoteles</h2>
-<ul>
-  <li>Gran Hotel Ciudad de Mexico</li>
-  <li>Fiesta Inn Centro Historico</li>
-  <li>Casa Blanca</li>
-</ul>
+  <h2>Iconicos</h2>
+  <ul>
+    <li>Ex Convento de San Hipolito</li>
+    <li>Palacio Metropolitano</li>
+    <li>Ex Convento Regina</li>
+  </ul>
 
-<h2>Otros</h2>
-<ul>
-  <li>Tenampa</li>
-</ul>
+  <h2>Hoteles</h2>
+  <ul>
+    <li>Gran Hotel Ciudad de Mexico</li>
+    <li>Fiesta Inn Centro Historico</li>
+    <li>Casa Blanca</li>
+  </ul>
 
-<h2>Residencia Cultural + Coworking</h2>
-<ul>
-  <li>Ex-Selina (Casa Pepe)</li>
-</ul>
+  <h2>Otros</h2>
+  <ul>
+    <li>Tenampa</li>
+  </ul>
+
+  <h2>Residencia Cultural + Coworking</h2>
+  <ul>
+    <li>Ex-Selina (Casa Pepe)</li>
+  </ul>
+
+</main>
+
+<footer>Documento del comite de organizacion de Che Hostels para NAHA 2027.</footer>
 
 </body>
 </html>
