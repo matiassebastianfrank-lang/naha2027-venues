@@ -7,368 +7,467 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --stone:#E7E0D1;
-    --paper:#FBF8F1;
-    --ink:#211F2C;
-    --ink-soft:#5B5768;
-    --azul:#1B3A6B;
-    --cochinilla:#9B2242;
-    --ocre:#B9822A;
-    --verde:#3F6B4C;
-    --line:#D8CFB9;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--stone);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.6;
-  }
-  h1,h2{font-family:'Fraunces', serif; font-weight:600;}
-  .talavera-strip{
-    height:14px;
-    background-image:
-      radial-gradient(circle at 7px 7px, var(--azul) 3px, transparent 3.5px),
-      radial-gradient(circle at 21px 7px, var(--ocre) 2px, transparent 2.5px);
-    background-size:28px 14px;
-    background-color:var(--paper);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-  header{
-    background:var(--paper);
-    padding:48px 24px 32px;
-  }
-  .header-inner{max-width:760px; margin:0 auto;}
-  .eyebrow{
-    text-transform:uppercase;
-    letter-spacing:0.14em;
-    font-size:12px;
-    font-weight:600;
-    color:var(--cochinilla);
-    margin-bottom:12px;
-  }
-  h1{font-size:clamp(28px,5vw,44px); margin:0 0 10px; color:var(--azul);}
-  .subtitle{font-size:16px; color:var(--ink-soft); margin:0;}
-  main{max-width:760px; margin:0 auto; padding:32px 24px 80px;}
-  h2{
-    font-size:20px;
-    color:var(--azul);
-    border-bottom:2px solid var(--line);
-    padding-bottom:8px;
-    margin-top:40px;
-  }
-  ul{list-style:none; padding:0; margin:16px 0 0;}
-  li{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:12px 16px;
-    margin-bottom:8px;
-    font-size:15px;
-  }
-  details{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:10px;
-    margin-bottom:8px;
-    padding:0;
-  }
-  summary{
-    padding:12px 16px;
-    font-size:15px;
-    font-weight:500;
-    cursor:pointer;
-    list-style:none;
-  }
-  summary::-webkit-details-marker{display:none;}
-  summary::after{content:'+'; float:right; color:var(--azul); font-weight:700;}
-  details[open] summary::after{content:'-';}
-  .detail-body{
-    padding:0 16px 16px;
-    border-top:1px dashed var(--line);
-    margin-top:4px;
-    padding-top:12px;
-  }
-  .detail-body table{width:100%; border-collapse:collapse; font-size:14px;}
-  .detail-body td{padding:6px 0; vertical-align:top; border-bottom:1px solid var(--line);}
-  .detail-body td:first-child{width:36%; color:var(--ink-soft); padding-right:10px;}
-  .detail-body tr:last-child td{border-bottom:none;}
-  .detail-body ul{list-style:disc; padding-left:18px; margin:6px 0 0; background:none; border:none;}
-  .detail-body ul li{background:none; border:none; padding:2px 0; margin:0; font-size:13px;}
-  .subhead{font-size:13px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; margin:14px 0 4px;}
-  .photo-strip{display:flex; gap:8px; overflow-x:auto; padding:10px 0 4px; margin:0;}
-  .photo-strip img{height:120px; width:auto; border-radius:8px; object-fit:cover; flex-shrink:0; border:1px solid var(--line);}
-  footer{text-align:center; padding:32px 24px; font-size:12px; color:var(--ink-soft);}
+:root{--stone:#E7E0D1;--paper:#FBF8F1;--ink:#211F2C;--ink-soft:#5B5768;--azul:#1B3A6B;--cochinilla:#9B2242;--ocre:#B9822A;--verde:#3F6B4C;--line:#D8CFB9;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--stone);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;}
+.talavera-strip{height:14px;background-image:radial-gradient(circle at 7px 7px,var(--azul) 3px,transparent 3.5px),radial-gradient(circle at 21px 7px,var(--ocre) 2px,transparent 2.5px);background-size:28px 14px;background-color:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+header{background:var(--paper);padding:48px 24px 0;}
+.header-inner{max-width:1000px;margin:0 auto;}
+.eyebrow{text-transform:uppercase;letter-spacing:0.14em;font-size:12px;font-weight:600;color:var(--cochinilla);margin-bottom:12px;}
+h1{font-size:clamp(28px,5vw,44px);margin:0 0 10px;color:var(--azul);}
+.subtitle{font-size:16px;color:var(--ink-soft);margin:0;max-width:640px;}
+.stats-bar{display:flex;gap:48px;flex-wrap:wrap;padding:28px 0;margin-top:16px;border-top:1px solid var(--line);}
+.stat-block .num{font-family:'Fraunces',serif;font-size:28px;color:var(--azul);font-weight:600;}
+.stat-block .label{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+main{max-width:1000px;margin:0 auto;padding:32px 24px 80px;}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
+.chip{padding:8px 16px;border-radius:20px;border:1px solid var(--line);background:var(--paper);font-size:13px;font-weight:500;cursor:pointer;color:var(--ink);}
+.chip.active{background:var(--azul);color:#fff;border-color:var(--azul);}
+.chip .count{opacity:0.65;margin-left:4px;}
+.venue-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media (max-width:680px){.venue-grid{grid-template-columns:1fr;}}
+.venue-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(33,31,44,0.05);}
+.card-bar{height:5px;background:var(--azul);}
+.venue-card[data-cat="hotel"] .card-bar{background:var(--ocre);}
+.venue-card[data-cat="otro"] .card-bar{background:var(--verde);}
+.venue-card[data-cat="residencial"] .card-bar{background:var(--cochinilla);}
+.card-body{padding:20px;}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+.card-header h3{font-size:19px;margin:0;color:var(--ink);}
+.badge{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;padding:4px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+.badge.complete{background:#DCE8DE;color:var(--verde);}
+.badge.partial{background:#F3E2C2;color:var(--ocre);}
+.card-desc{font-size:14px;color:var(--ink-soft);margin:10px 0 16px;}
+.quick-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-bottom:16px;border-bottom:1px dashed var(--line);margin-bottom:14px;}
+.stat-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-soft);margin-bottom:3px;}
+.stat-value{display:block;font-size:13px;color:var(--ink);font-weight:500;}
+.detail-btn{display:block;text-align:center;padding:10px;border:1px solid var(--azul);border-radius:8px;color:var(--azul);font-weight:600;font-size:14px;cursor:pointer;list-style:none;}
+.detail-btn::-webkit-details-marker{display:none;}
+.detail-btn:hover{background:var(--azul);color:#fff;}
+details[open] .detail-btn{background:var(--azul);color:#fff;margin-bottom:14px;}
+.detail-body table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;}
+.detail-body td{padding:6px 0;vertical-align:top;border-bottom:1px solid var(--line);}
+.detail-body td:first-child{width:36%;color:var(--ink-soft);padding-right:10px;}
+.detail-body tr:last-child td{border-bottom:none;}
+.detail-body ul{list-style:disc;padding-left:18px;margin:6px 0 0;}
+.detail-body ul li{padding:2px 0;margin:0;font-size:13px;}
+.subhead{font-size:13px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.04em;margin:14px 0 4px;}
+.photo-strip{display:flex;gap:8px;overflow-x:auto;padding:10px 0 4px;margin:0;}
+.photo-strip img{height:120px;width:auto;border-radius:8px;object-fit:cover;flex-shrink:0;border:1px solid var(--line);}
+footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="eyebrow">Comite de Sede - NAHA 2027</div>
-    <h1>Sedes en Ciudad de Mexico</h1>
-    <p class="subtitle">Concentrado de espacios en evaluacion para la conferencia (6-8 de abril de 2027).</p>
-  </div>
+<div class="header-inner">
+<div class="eyebrow">Comite de Sede - NAHA 2027</div>
+<h1>Sedes en Ciudad de Mexico</h1>
+<p class="subtitle">Concentrado vivo de los espacios evaluados para la conferencia anual de NAHA (6-8 de abril de 2027). Se va sumando informacion a medida que aparecen nuevas opciones.</p>
+<div class="stats-bar">
+<div class="stat-block"><div class="num">11</div><div class="label">opciones en seguimiento</div></div>
+<div class="stat-block"><div class="num">$80k-$420k</div><div class="label">MXN por dia (rango)</div></div>
+<div class="stat-block"><div class="num">200</div><div class="label">asistentes estimados NAHA</div></div>
+<div class="stat-block"><div class="num">30 ago 2026</div><div class="label">ultima actualizacion</div></div>
+</div>
+</div>
 </header>
 <div class="talavera-strip"></div>
 
 <main>
 
-  <h2>Iconicos</h2>
-  <ul>
-    <li>
-      <details>
-        <summary>Ex Convento de San Hipolito</summary>
-        <div class="detail-body">
-          <table>
-            <tr><td>Direccion</td><td>Av. Hidalgo 107, esquina Paseo de la Reforma, Centro Historico, CDMX</td></tr>
-            <tr><td>Tipo</td><td>Monumento colonial (S. XVI), patio central con carpa de 1,000 m2 + salones anexos</td></tr>
-            <tr><td>Capacidad</td><td>1,150 personas (900 planta baja + 250 planta alta)</td></tr>
-            <tr><td>Disponibilidad</td><td>Confirmada del 4 al 8 de abril de 2027</td></tr>
-            <tr><td>Tarifa L-J</td><td>$200,000 MXN + IVA</td></tr>
-            <tr><td>Tarifa viernes</td><td>$320,000 MXN + IVA</td></tr>
-            <tr><td>Tarifa sabado</td><td>$420,000 MXN + IVA</td></tr>
-            <tr><td>Tarifa domingo</td><td>$250,000 MXN + IVA</td></tr>
-            <tr><td>Deposito</td><td>$25,000 MXN (reembolsable 48h despues)</td></tr>
-            <tr><td>Catering</td><td>No incluido, se contrata por fuera</td></tr>
-            <tr><td>A/V</td><td>No incluido</td></tr>
-            <tr><td>Wi-Fi</td><td>Adicional obligatorio: $12,000 MXN</td></tr>
-            <tr><td>Contacto</td><td>Alicia Usobiaga - alicia@san-hipolito.mx - +52 55 2270 7891</td></tr>
-            <tr><td>Sitio web</td><td><a href="https://www.san-hipolito.mx" target="_blank">san-hipolito.mx</a></td></tr>
-          </table>
-        </div>
-      </details>
-    </li>
-    <li>
-      <details>
-        <summary>Palacio Metropolitano</summary>
-        <div class="detail-body">
-          <table>
-            <tr><td>Direccion</td><td>C. de Tacuba 15, Centro Historico, Cuauhtemoc, CDMX</td></tr>
-            <tr><td>Distancia</td><td>15 min a pie desde Casa Pepe</td></tr>
-            <tr><td>Capacidad</td><td>400 banquete / 800 coctel</td></tr>
-            <tr><td>Disponibilidad</td><td>6, 7, 8 y 9 de abril (el 9 con restriccion de horario hasta 00:00)</td></tr>
-            <tr><td>Tarifa L-J y viernes</td><td>$149,000 (101-200 pax) / $189,000 (201-300 pax)</td></tr>
-            <tr><td>Tarifa sabado</td><td>$199,000 (101-200 pax) / $219,000 (201-300 pax)</td></tr>
-            <tr><td>Deposito</td><td>$35,000 (hasta 400 pax) o $50,000 (hasta 800 pax)</td></tr>
-            <tr><td>Anticipo</td><td>50% aparta fecha, liquidar 30 dias antes</td></tr>
-            <tr><td>Catering</td><td>Se puede rentar solo el venue y traer proveedores propios</td></tr>
-            <tr><td>A/V</td><td>Incluye planta de luz 100KW, seguridad, limpieza, A/C en salones principales</td></tr>
-            <tr><td>Contacto</td><td>+52 55 8036 2205 - contacto@palaciometropolitano.com.mx</td></tr>
-            <tr><td>Sitio web</td><td><a href="https://www.palaciometropolitano.com.mx/eventos" target="_blank">palaciometropolitano.com.mx</a></td></tr>
-          </table>
-          <div class="subhead">Restricciones</div>
-          <ul>
-            <li>No se permite alfombrar ni pegar nada en pisos y paredes</li>
-            <li>No se pueden desmontar candiles ni mover mobiliario del salon</li>
-            <li>Todo proveedor debe traer identificacion vigente para gafete</li>
-          </ul>
-        </div>
-      </details>
-    </li>
-    <li>
-      <details>
-        <summary>Ex Convento Regina</summary>
-        <div class="detail-body">
-          <table>
-            <tr><td>Direccion</td><td>Regina 7, Centro Historico, Cuauhtemoc, CDMX</td></tr>
-            <tr><td>Distancia</td><td>9 min a pie desde Casa Pepe</td></tr>
-            <tr><td>Tipo</td><td>Ex convento, Corredor Cultural del Centro Historico. 4 patios rentables por separado (2 cotizados)</td></tr>
-            <tr><td>Contacto</td><td>reservacionesregina@gmail.com - +52 55 3262 4532</td></tr>
-          </table>
-          <div class="subhead">Patio de los Naranjos</div>
-          <table>
-            <tr><td>Capacidad</td><td>Banquete 300 / Coctel 350 / Auditorio 400</td></tr>
-            <tr><td>Tarifa L-J</td><td>$80,000 MXN</td></tr>
-            <tr><td>Tarifa viernes</td><td>$144,000 MXN</td></tr>
-            <tr><td>Tarifa sabado</td><td>$160,000 MXN</td></tr>
-            <tr><td>Deposito</td><td>$20,000 (reembolsable)</td></tr>
-          </table>
-          <div class="subhead">Patio de San Jeronimo</div>
-          <table>
-            <tr><td>Tarifa L-J</td><td>$132,800 MXN</td></tr>
-            <tr><td>Tarifa viernes</td><td>$249,000 MXN</td></tr>
-            <tr><td>Tarifa sabado</td><td>$265,000 MXN</td></tr>
-            <tr><td>Deposito</td><td>$20,000 (reembolsable)</td></tr>
-          </table>
-          <div class="subhead">Restricciones</div>
-          <ul>
-            <li>8 horas de evento, limite 2 am (extra con costo)</li>
-            <li>Ambulancia obligatoria para mas de 250 personas</li>
-          </ul>
-        </div>
-      </details>
-    </li>
-  </ul>
+<div class="filters">
+<button class="chip active" data-cat="all">Todos <span class="count">11</span></button>
+<button class="chip" data-cat="iconico">Iconicos <span class="count">3</span></button>
+<button class="chip" data-cat="hotel">Hoteles <span class="count">6</span></button>
+<button class="chip" data-cat="otro">Otros <span class="count">1</span></button>
+<button class="chip" data-cat="residencial">Residencia cultural <span class="count">1</span></button>
+</div>
 
-  <h2>Hoteles</h2>
-  <ul>
-    <li>
-      <details>
-        <summary>Gran Hotel Ciudad de Mexico</summary>
-        <div class="detail-body">
-          <div class="photo-strip">
-            <img src="images/GRAN_HOTEL/GRAN_HOTEL_01.jpg" alt="Gran Hotel 1">
-            <img src="images/GRAN_HOTEL/GRAN_HOTEL_02.jpg" alt="Gran Hotel 2">
-            <img src="images/GRAN_HOTEL/GRAN_HOTEL_03.jpg" alt="Gran Hotel 3">
-            <img src="images/GRAN_HOTEL/GRAN_HOTEL_04.jpg" alt="Gran Hotel 4">
-            <img src="images/GRAN_HOTEL/GRAN_HOTEL_05.jpg" alt="Gran Hotel 5">
-          </div>
-          <table>
-            <tr><td>Direccion</td><td>Esquina de 16 de Septiembre y 5 de Febrero, Centro Historico, CDMX</td></tr>
-            <tr><td>Distancia</td><td>250 metros de Casa Pepe</td></tr>
-            <tr><td>Tipo</td><td>Hotel 5 estrellas Art Nouveau, 11 salones + Plaza Mayor y Terraza</td></tr>
-            <tr><td>Capacidad</td><td>Gran Salon: 350 auditorio / 330 banquete / 400 coctel. Mezzanine: 500 banquete / 700 coctel</td></tr>
-            <tr><td>Breakout rooms</td><td>Vitrales I/II/III, Velasco Villalpando, Miguel Cabrera, Cristobal Villalpando, Jose M. Velasco (3-5 breakouts simultaneos)</td></tr>
-            <tr><td>Disponibilidad</td><td>Si, disponible en abril 2027</td></tr>
-            <tr><td>Tarifa</td><td>Paquete Clasico: $1,300 MXN/persona x 200 pax x 1 dia = $260,000 MXN total</td></tr>
-            <tr><td>Catering</td><td>Incluido en el paquete: menu 3 tiempos + personal + montaje</td></tr>
-            <tr><td>Bebidas</td><td>Descorche libre 5h incluido</td></tr>
-            <tr><td>A/V</td><td>No especificado, pendiente confirmar</td></tr>
-            <tr><td>Contacto</td><td>Edith Garcia - egarcia@granhotelcdmex.com.mx</td></tr>
-            <tr><td>Sitio web</td><td><a href="https://granhoteldelaciudaddemexico.com.mx/es/" target="_blank">granhoteldelaciudaddemexico.com.mx</a></td></tr>
-          </table>
-          <div class="subhead">Nota</div>
-          <ul>
-            <li>La cotizacion de $260,000 es por 1 dia, no cubre los 3 dias completos del programa NAHA</li>
-            <li>Falta cotizacion integral con breakouts, A/V, registro, recepcion y cena de premiacion</li>
-          </ul>
-        </div>
-      </details>
-    </li>
-    <li>Fiesta Inn Centro Historico</li>
-    <li>Casa Blanca</li>
-    <li>
-      <details>
-        <summary>City Express</summary>
-        <div class="detail-body">
-          <div class="photo-strip">
-            <img src="images/CITY_EXPRESS/CITY_EXPRESS_01.jpg" alt="City Express 1">
-            <img src="images/CITY_EXPRESS/CITY_EXPRESS_02.jpg" alt="City Express 2">
-            <img src="images/CITY_EXPRESS/CITY_EXPRESS_03.jpg" alt="City Express 3">
-            <img src="images/CITY_EXPRESS/CITY_EXPRESS_04.jpg" alt="City Express 4">
-          </div>
-          <div class="subhead">Nota</div>
-          <ul>
-            <li>Falta confirmar direccion, capacidad, disponibilidad, tarifas y contacto</li>
-          </ul>
-        </div>
-      </details>
-    </li>
-    <li>
-      <details>
-        <summary>Laila</summary>
-        <div class="detail-body">
-          <div class="photo-strip">
-            <img src="images/LAILA/LAILA_01.jpg" alt="Laila 1">
-            <img src="images/LAILA/LAILA_02.jpg" alt="Laila 2">
-            <img src="images/LAILA/LAILA_03.jpg" alt="Laila 3">
-            <img src="images/LAILA/LAILA_04.jpg" alt="Laila 4">
-            <img src="images/LAILA/LAILA_05.jpg" alt="Laila 5">
-            <img src="images/LAILA/LAILA_06.jpg" alt="Laila 6">
-            <img src="images/LAILA/LAILA_07.jpg" alt="Laila 7">
-          </div>
-          <table>
-            <tr><td>Tarifa</td><td>$700 MXN por persona por dia (incluye coffee break + desayuno)</td></tr>
-            <tr><td>Incluye</td><td>Salon para conferencia y salon separado para coffee break y sponsors</td></tr>
-          </table>
-          <div class="subhead">Nota</div>
-          <ul>
-            <li>Falta confirmar capacidad, direccion, disponibilidad, A/V, deposito y contacto</li>
-          </ul>
-        </div>
-      </details>
-    </li>
-    <li>
-      <details>
-        <summary>NH Collection Mexico City Centro Historico</summary>
-        <div class="detail-body">
-          <div class="photo-strip">
-            <img src="images/nh/NH_01.jpg" alt="NH Collection 1">
-            <img src="images/nh/NH_02.jpg" alt="NH Collection 2">
-          </div>
-          <table>
-            <tr><td>Direccion</td><td>Calle Palma N. 42, Colonia Centro, C.P. 06000, CDMX</td></tr>
-            <tr><td>Tipo</td><td>Hotel Minor Hotels / NH Collection, Centro Historico</td></tr>
-            <tr><td>Sala cotizada</td><td>Gran Independencia, Madero y Allende (auditorium, 150 pax). Area 260 m2, altura 2.30m, A/C, videoproyector fijo, luz natural, posibilidad de oscurecimiento, paredes variables</td></tr>
-            <tr><td>Fechas cotizadas</td><td>7 y 8 de abril de 2027 (9:00-18:00 cada dia) - nota: la cotizacion cubre 2 dias, confirmar si incluye el 6</td></tr>
-            <tr><td>Incluye por dia</td><td>1 proyector + 2 pantallas + sonido ($8,300 + IVA), estacion de bebidas calientes 2h para 150 pax ($34,923 + IVA), propinas coffee break</td></tr>
-            <tr><td>Total cotizado (2 dias)</td><td>$96,925 MXN + IVA = $110,756.36 MXN total (recursos audiovisuales + A&B + propinas)</td></tr>
-            <tr><td>Wi-Fi</td><td>Basico gratis en salones. Bloque adicional de 10MB: $3,500 + IVA por salon/dia</td></tr>
-            <tr><td>Anticipo</td><td>50% a la firma del contrato, 50% 10 dias habiles antes del evento</td></tr>
-            <tr><td>Cancelacion</td><td>Escalonada: 10% (90 dias antes) hasta 100% (menos de 5 dias antes)</td></tr>
-            <tr><td>Estacionamiento</td><td>Evento $190 MXN/8h, regular $48 MXN/h, huespedes $300 MXN/24h</td></tr>
-            <tr><td>Contacto</td><td>Ka.martinez@nh-hotels.com - T. +52 55 5130 1850 Ext. 564</td></tr>
-            <tr><td>Referencia cotizacion</td><td>MB0005038188 - Evento NAHA #5004869 (cotizada 27 ago 2026 por Sury Lopez, Minor Hotels)</td></tr>
-          </table>
-          <div class="subhead">Catering (opciones de menu, no incluidas en la cotizacion base)</div>
-          <ul>
-            <li>Desayunos emplatados: $450-$650 MXN por persona segun paquete</li>
-            <li>Desayunos buffet: $505-$690 MXN por persona (buffet requiere minimo 30 personas)</li>
-            <li>Comida/cena emplatada: $450 MXN (3 tiempos) o $630 MXN (4 tiempos) por persona</li>
-            <li>Coffee breaks (Tempting Break): desde $305 MXN (2h) hasta $650 MXN (8h) segun tipo y duracion</li>
-          </ul>
-          <div class="subhead">Nota</div>
-          <ul>
-            <li>Cotizacion informativa, no representa reserva confirmada de salas ni condiciones</li>
-            <li>Precios sujetos a cambio; se debe confirmar disponibilidad y actualizar vigencia de tarifas al momento del contrato</li>
-          </ul>
-        </div>
-      </details>
-    </li>
-  </ul>
+<div class="venue-grid">
 
-  <h2>Otros</h2>
-  <ul>
-    <li>Tenampa</li>
-  </ul>
+<div class="venue-card" data-cat="iconico">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Ex Convento de San Hipolito</h3><span class="badge complete">Info completa</span></div>
+<p class="card-desc">Monumento colonial (S. XVI), patio central con carpa de 1,000 m2</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">1,150 pax</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">desde $200k/dia</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">Sin confirmar</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<table>
+<tr><td>Direccion</td><td>Av. Hidalgo 107, esquina Paseo de la Reforma, Centro Historico, CDMX</td></tr>
+<tr><td>Tipo</td><td>Monumento colonial (S. XVI), patio central con carpa de 1,000 m2 + salones anexos</td></tr>
+<tr><td>Capacidad</td><td>1,150 personas (900 planta baja + 250 planta alta)</td></tr>
+<tr><td>Disponibilidad</td><td>Confirmada del 4 al 8 de abril de 2027</td></tr>
+<tr><td>Tarifa L-J</td><td>$200,000 MXN + IVA</td></tr>
+<tr><td>Tarifa viernes</td><td>$320,000 MXN + IVA</td></tr>
+<tr><td>Tarifa sabado</td><td>$420,000 MXN + IVA</td></tr>
+<tr><td>Tarifa domingo</td><td>$250,000 MXN + IVA</td></tr>
+<tr><td>Deposito</td><td>$25,000 MXN (reembolsable 48h despues)</td></tr>
+<tr><td>Catering</td><td>No incluido, se contrata por fuera</td></tr>
+<tr><td>A/V</td><td>No incluido</td></tr>
+<tr><td>Wi-Fi</td><td>Adicional obligatorio: $12,000 MXN</td></tr>
+<tr><td>Contacto</td><td>Alicia Usobiaga - alicia@san-hipolito.mx - +52 55 2270 7891</td></tr>
+<tr><td>Sitio web</td><td><a href="https://www.san-hipolito.mx" target="_blank">san-hipolito.mx</a></td></tr>
+</table>
+</div>
+</details>
+</div>
+</div>
 
-  <h2>Residencia Cultural + Coworking</h2>
-  <ul>
-    <li>
-      <details>
-        <summary>Virreyes (ex-Selina, Casa Pepe)</summary>
-        <div class="detail-body">
-          <div class="photo-strip">
-            <img src="images/VIRREYES/VIRREYES_01.jpg" alt="Virreyes 1">
-            <img src="images/VIRREYES/VIRREYES_02.jpg" alt="Virreyes 2">
-            <img src="images/VIRREYES/VIRREYES_03.jpg" alt="Virreyes 3">
-            <img src="images/VIRREYES/VIRREYES_04.jpg" alt="Virreyes 4">
-            <img src="images/VIRREYES/VIRREYES_05.jpg" alt="Virreyes 5">
-            <img src="images/VIRREYES/VIRREYES_06.jpg" alt="Virreyes 6">
-            <img src="images/VIRREYES/VIRREYES_07.jpg" alt="Virreyes 7">
-            <img src="images/VIRREYES/VIRREYES_08.jpg" alt="Virreyes 8">
-            <img src="images/VIRREYES/VIRREYES_09.jpg" alt="Virreyes 9">
-            <img src="images/VIRREYES/VIRREYES_10.jpg" alt="Virreyes 10">
-            <img src="images/VIRREYES/VIRREYES_11.jpg" alt="Virreyes 11">
-            <img src="images/VIRREYES/VIRREYES_12.jpg" alt="Virreyes 12">
-            <img src="images/VIRREYES/VIRREYES_13.jpg" alt="Virreyes 13">
-            <img src="images/VIRREYES/VIRREYES_14.jpg" alt="Virreyes 14">
-            <img src="images/VIRREYES/VIRREYES_15.jpg" alt="Virreyes 15">
-            <img src="images/VIRREYES/VIRREYES_16.jpg" alt="Virreyes 16">
-            <img src="images/VIRREYES/VIRREYES_17.jpg" alt="Virreyes 17">
-            <img src="images/VIRREYES/VIRREYES_18.jpg" alt="Virreyes 18">
-            <img src="images/VIRREYES/VIRREYES_19.jpg" alt="Virreyes 19">
-            <img src="images/VIRREYES/VIRREYES_20.jpg" alt="Virreyes 20">
-            <img src="images/VIRREYES/VIRREYES_21.jpg" alt="Virreyes 21">
-            <img src="images/VIRREYES/VIRREYES_22.jpg" alt="Virreyes 22">
-            <img src="images/VIRREYES/VIRREYES_23.jpg" alt="Virreyes 23">
-            <img src="images/VIRREYES/VIRREYES_24.jpg" alt="Virreyes 24">
-            <img src="images/VIRREYES/VIRREYES_25.jpg" alt="Virreyes 25">
-            <img src="images/VIRREYES/VIRREYES_26.jpg" alt="Virreyes 26">
-            <img src="images/VIRREYES/VIRREYES_27.jpg" alt="Virreyes 27">
-          </div>
-        </div>
-      </details>
-    </li>
-  </ul>
+<div class="venue-card" data-cat="iconico">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Palacio Metropolitano</h3><span class="badge complete">Info completa</span></div>
+<p class="card-desc">Recinto de eventos en el Centro Historico</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">400-800 pax</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">desde $149k/dia</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">15 min a pie</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<table>
+<tr><td>Direccion</td><td>C. de Tacuba 15, Centro Historico, Cuauhtemoc, CDMX</td></tr>
+<tr><td>Distancia</td><td>15 min a pie desde Casa Pepe</td></tr>
+<tr><td>Capacidad</td><td>400 banquete / 800 coctel</td></tr>
+<tr><td>Disponibilidad</td><td>6, 7, 8 y 9 de abril (el 9 con restriccion de horario hasta 00:00)</td></tr>
+<tr><td>Tarifa L-J y viernes</td><td>$149,000 (101-200 pax) / $189,000 (201-300 pax)</td></tr>
+<tr><td>Tarifa sabado</td><td>$199,000 (101-200 pax) / $219,000 (201-300 pax)</td></tr>
+<tr><td>Deposito</td><td>$35,000 (hasta 400 pax) o $50,000 (hasta 800 pax)</td></tr>
+<tr><td>Anticipo</td><td>50% aparta fecha, liquidar 30 dias antes</td></tr>
+<tr><td>Catering</td><td>Se puede rentar solo el venue y traer proveedores propios</td></tr>
+<tr><td>A/V</td><td>Incluye planta de luz 100KW, seguridad, limpieza, A/C en salones principales</td></tr>
+<tr><td>Contacto</td><td>+52 55 8036 2205 - contacto@palaciometropolitano.com.mx</td></tr>
+<tr><td>Sitio web</td><td><a href="https://www.palaciometropolitano.com.mx/eventos" target="_blank">palaciometropolitano.com.mx</a></td></tr>
+</table>
+<div class="subhead">Restricciones</div>
+<ul>
+<li>No se permite alfombrar ni pegar nada en pisos y paredes</li>
+<li>No se pueden desmontar candiles ni mover mobiliario del salon</li>
+<li>Todo proveedor debe traer identificacion vigente para gafete</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="iconico">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Ex Convento Regina</h3><span class="badge partial">Info parcial</span></div>
+<p class="card-desc">Corredor Cultural del Centro Historico - 4 patios (2 cotizados)</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">300-400 pax</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">desde $80k/dia</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">9 min a pie</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<table>
+<tr><td>Direccion</td><td>Regina 7, Centro Historico, Cuauhtemoc, CDMX</td></tr>
+<tr><td>Contacto</td><td>reservacionesregina@gmail.com - +52 55 3262 4532</td></tr>
+</table>
+<div class="subhead">Patio de los Naranjos</div>
+<table>
+<tr><td>Capacidad</td><td>Banquete 300 / Coctel 350 / Auditorio 400</td></tr>
+<tr><td>Tarifa L-J</td><td>$80,000 MXN</td></tr>
+<tr><td>Tarifa viernes</td><td>$144,000 MXN</td></tr>
+<tr><td>Tarifa sabado</td><td>$160,000 MXN</td></tr>
+<tr><td>Deposito</td><td>$20,000 (reembolsable)</td></tr>
+</table>
+<div class="subhead">Patio de San Jeronimo</div>
+<table>
+<tr><td>Tarifa L-J</td><td>$132,800 MXN</td></tr>
+<tr><td>Tarifa viernes</td><td>$249,000 MXN</td></tr>
+<tr><td>Tarifa sabado</td><td>$265,000 MXN</td></tr>
+<tr><td>Deposito</td><td>$20,000 (reembolsable)</td></tr>
+</table>
+<div class="subhead">Restricciones</div>
+<ul>
+<li>8 horas de evento, limite 2 am (extra con costo)</li>
+<li>Ambulancia obligatoria para mas de 250 personas</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="hotel">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Gran Hotel Ciudad de Mexico</h3><span class="badge partial">Info parcial</span></div>
+<p class="card-desc">Hotel 5 estrellas Art Nouveau, 11 salones + Plaza Mayor y Terraza</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">350 auditorio</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">$260k / 200pax / 1 dia</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">250 m</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<div class="photo-strip">
+<img src="images/GRAN_HOTEL/GRAN_HOTEL_01.jpg" alt="Gran Hotel 1">
+<img src="images/GRAN_HOTEL/GRAN_HOTEL_02.jpg" alt="Gran Hotel 2">
+<img src="images/GRAN_HOTEL/GRAN_HOTEL_03.jpg" alt="Gran Hotel 3">
+<img src="images/GRAN_HOTEL/GRAN_HOTEL_04.jpg" alt="Gran Hotel 4">
+<img src="images/GRAN_HOTEL/GRAN_HOTEL_05.jpg" alt="Gran Hotel 5">
+</div>
+<table>
+<tr><td>Direccion</td><td>Esquina de 16 de Septiembre y 5 de Febrero, Centro Historico, CDMX</td></tr>
+<tr><td>Distancia</td><td>250 metros de Casa Pepe</td></tr>
+<tr><td>Capacidad</td><td>Gran Salon: 350 auditorio / 330 banquete / 400 coctel. Mezzanine: 500 banquete / 700 coctel</td></tr>
+<tr><td>Tarifa</td><td>Paquete Clasico: $1,300 MXN/persona x 200 pax x 1 dia = $260,000 MXN total</td></tr>
+<tr><td>Catering</td><td>Incluido en el paquete: menu 3 tiempos + personal + montaje</td></tr>
+<tr><td>Contacto</td><td>Edith Garcia - egarcia@granhotelcdmex.com.mx</td></tr>
+<tr><td>Sitio web</td><td><a href="https://granhoteldelaciudaddemexico.com.mx/es/" target="_blank">granhoteldelaciudaddemexico.com.mx</a></td></tr>
+</table>
+<div class="subhead">Nota</div>
+<ul>
+<li>La cotizacion de $260,000 es por 1 dia, no cubre los 3 dias completos del programa NAHA</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="hotel">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Fiesta Inn Centro Historico</h3><span class="badge partial">Info parcial</span></div>
+<p class="card-desc">Cadena Posadas, Centro Historico</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">Sin confirmar</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">Sin cotizar</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">24 min</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<ul>
+<li>Contacto: grupos@posadas.com</li>
+<li>Falta cotizacion, capacidad y disponibilidad</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="hotel">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Casa Blanca</h3><span class="badge partial">Info parcial</span></div>
+<p class="card-desc">Hotel, Centro Historico</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">Hasta 300 pax</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">Sin cotizar</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">Sin confirmar</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<ul>
+<li>Contacto: hotel@hotel-casablanca.com.mx</li>
+<li>Falta cotizacion y disponibilidad</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="hotel">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>City Express</h3><span class="badge partial">Info parcial</span></div>
+<p class="card-desc">Cadena hotelera, pendiente de cotizar</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">Sin confirmar</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">Sin cotizar</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">Sin confirmar</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<div class="photo-strip">
+<img src="images/CITY_EXPRESS/CITY_EXPRESS_01.jpg" alt="City Express 1">
+<img src="images/CITY_EXPRESS/CITY_EXPRESS_02.jpg" alt="City Express 2">
+<img src="images/CITY_EXPRESS/CITY_EXPRESS_03.jpg" alt="City Express 3">
+<img src="images/CITY_EXPRESS/CITY_EXPRESS_04.jpg" alt="City Express 4">
+</div>
+<ul>
+<li>Falta confirmar direccion, capacidad, disponibilidad, tarifas y contacto</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="hotel">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Laila</h3><span class="badge partial">Info parcial</span></div>
+<p class="card-desc">Salon conferencia + salon coffee break/sponsors</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">Sin confirmar</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">$700/persona/dia</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">Sin confirmar</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<div class="photo-strip">
+<img src="images/LAILA/LAILA_01.jpg" alt="Laila 1">
+<img src="images/LAILA/LAILA_02.jpg" alt="Laila 2">
+<img src="images/LAILA/LAILA_03.jpg" alt="Laila 3">
+<img src="images/LAILA/LAILA_04.jpg" alt="Laila 4">
+<img src="images/LAILA/LAILA_05.jpg" alt="Laila 5">
+<img src="images/LAILA/LAILA_06.jpg" alt="Laila 6">
+<img src="images/LAILA/LAILA_07.jpg" alt="Laila 7">
+</div>
+<table>
+<tr><td>Tarifa</td><td>$700 MXN por persona por dia (incluye coffee break + desayuno)</td></tr>
+<tr><td>Incluye</td><td>Salon para conferencia y salon separado para coffee break y sponsors</td></tr>
+</table>
+<div class="subhead">Nota</div>
+<ul>
+<li>Falta confirmar capacidad, direccion, disponibilidad, A/V, deposito y contacto</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="hotel">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>NH Collection CDMX Centro Historico</h3><span class="badge complete">Info completa</span></div>
+<p class="card-desc">Minor Hotels / NH Collection, Centro Historico</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">150 pax auditorio</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">$110,756 (2 dias)</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">Sin confirmar</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<div class="photo-strip">
+<img src="images/nh/NH_01.jpg" alt="NH 1">
+<img src="images/nh/NH_02.jpg" alt="NH 2">
+</div>
+<table>
+<tr><td>Direccion</td><td>Calle Palma N. 42, Colonia Centro, C.P. 06000, CDMX</td></tr>
+<tr><td>Sala cotizada</td><td>Gran Independencia, Madero y Allende (auditorium, 150 pax). Area 260 m2, altura 2.30m, A/C, videoproyector fijo</td></tr>
+<tr><td>Fechas cotizadas</td><td>7 y 8 de abril de 2027 - confirmar si incluye el 6</td></tr>
+<tr><td>Total cotizado (2 dias)</td><td>$96,925 MXN + IVA = $110,756.36 MXN total</td></tr>
+<tr><td>Contacto</td><td>Ka.martinez@nh-hotels.com - T. +52 55 5130 1850 Ext. 564</td></tr>
+<tr><td>Referencia</td><td>MB0005038188 - Evento NAHA #5004869</td></tr>
+</table>
+<div class="subhead">Catering (opcional)</div>
+<ul>
+<li>Desayunos: $450-$690 MXN/persona segun paquete</li>
+<li>Comida/cena: $450-$630 MXN/persona</li>
+<li>Coffee breaks: $305-$650 MXN segun duracion</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="otro">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Tenampa</h3><span class="badge partial">Info parcial</span></div>
+<p class="card-desc">Restaurante-salon, no catering externo</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">220+80 pax</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">Sin cotizar</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">Sin confirmar</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<ul>
+<li>Contacto: +52 1 868 180 9580</li>
+<li>No permite catering externo</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="residencial">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Virreyes</h3><span class="badge partial">Info parcial</span></div>
+<p class="card-desc">Residencia Cultural + Coworking (ex-Selina, Casa Pepe)</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacidad</span><span class="stat-value">130-140 pax</span></div>
+<div><span class="stat-label">Precio</span><span class="stat-value">Practicamente gratis</span></div>
+<div><span class="stat-label">Distancia</span><span class="stat-value">15 min a pie</span></div>
+</div>
+<details>
+<summary class="detail-btn">Ver detalle y comentarios</summary>
+<div class="detail-body">
+<div class="photo-strip">
+<img src="images/VIRREYES/VIRREYES_01.jpg" alt="Virreyes 1">
+<img src="images/VIRREYES/VIRREYES_02.jpg" alt="Virreyes 2">
+<img src="images/VIRREYES/VIRREYES_03.jpg" alt="Virreyes 3">
+<img src="images/VIRREYES/VIRREYES_04.jpg" alt="Virreyes 4">
+<img src="images/VIRREYES/VIRREYES_05.jpg" alt="Virreyes 5">
+<img src="images/VIRREYES/VIRREYES_06.jpg" alt="Virreyes 6">
+<img src="images/VIRREYES/VIRREYES_07.jpg" alt="Virreyes 7">
+<img src="images/VIRREYES/VIRREYES_08.jpg" alt="Virreyes 8">
+<img src="images/VIRREYES/VIRREYES_09.jpg" alt="Virreyes 9">
+<img src="images/VIRREYES/VIRREYES_10.jpg" alt="Virreyes 10">
+<img src="images/VIRREYES/VIRREYES_11.jpg" alt="Virreyes 11">
+<img src="images/VIRREYES/VIRREYES_12.jpg" alt="Virreyes 12">
+<img src="images/VIRREYES/VIRREYES_13.jpg" alt="Virreyes 13">
+<img src="images/VIRREYES/VIRREYES_14.jpg" alt="Virreyes 14">
+<img src="images/VIRREYES/VIRREYES_15.jpg" alt="Virreyes 15">
+<img src="images/VIRREYES/VIRREYES_16.jpg" alt="Virreyes 16">
+<img src="images/VIRREYES/VIRREYES_17.jpg" alt="Virreyes 17">
+<img src="images/VIRREYES/VIRREYES_18.jpg" alt="Virreyes 18">
+<img src="images/VIRREYES/VIRREYES_19.jpg" alt="Virreyes 19">
+<img src="images/VIRREYES/VIRREYES_20.jpg" alt="Virreyes 20">
+<img src="images/VIRREYES/VIRREYES_21.jpg" alt="Virreyes 21">
+<img src="images/VIRREYES/VIRREYES_22.jpg" alt="Virreyes 22">
+<img src="images/VIRREYES/VIRREYES_23.jpg" alt="Virreyes 23">
+<img src="images/VIRREYES/VIRREYES_24.jpg" alt="Virreyes 24">
+<img src="images/VIRREYES/VIRREYES_25.jpg" alt="Virreyes 25">
+<img src="images/VIRREYES/VIRREYES_26.jpg" alt="Virreyes 26">
+<img src="images/VIRREYES/VIRREYES_27.jpg" alt="Virreyes 27">
+</div>
+</div>
+</details>
+</div>
+</div>
+
+</div>
 
 </main>
 
 <footer>Documento del comite de organizacion de Che Hostels para NAHA 2027.</footer>
+
+<script>
+document.querySelectorAll('.chip').forEach(function(chip){
+chip.addEventListener('click',function(){
+document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active');});
+chip.classList.add('active');
+var cat=chip.getAttribute('data-cat');
+document.querySelectorAll('.venue-card').forEach(function(card){
+card.style.display=(cat==='all'||card.getAttribute('data-cat')===cat)?'':'none';
+});
+});
+});
+</script>
 
 </body>
 </html>
