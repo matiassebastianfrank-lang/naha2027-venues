@@ -96,6 +96,9 @@
   .detail-body td{padding:6px 0; vertical-align:top; border-bottom:1px solid var(--line);}
   .detail-body td:first-child{width:36%; color:var(--ink-soft); padding-right:10px;}
   .detail-body tr:last-child td{border-bottom:none;}
+  .detail-body ul{list-style:disc; padding-left:18px; margin:6px 0 0; background:none; border:none;}
+  .detail-body ul li{background:none; border:none; padding:2px 0; margin:0; font-size:13px;}
+  .subhead{font-size:13px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; margin:14px 0 4px;}
   footer{text-align:center; padding:32px 24px; font-size:12px; color:var(--ink-soft);}
 </style>
 </head>
@@ -137,124 +140,66 @@
         </div>
       </details>
     </li>
-    <li>Palacio Metropolitano</li>
-    <li>Ex Convento Regina</li>
-  </ul>
-
-  <h2>Hoteles</h2>
-  <ul>
-    <li>Gran Hotel Ciudad de Mexico</li>
-    <li>Fiesta Inn Centro Historico</li>
-    <li>Casa Blanca</li>
-  </ul>
-
-  <h2>Otros</h2>
-  <ul>
-    <li>Tenampa</li>
-  </ul>
-
-  <h2>Residencia Cultural + Coworking</h2>
-  <ul>
-    <li>Ex-Selina (Casa Pepe)</li>
-  </ul>
-
-</main>
-
-<footer>Documento del comite de organizacion de Che Hostels para NAHA 2027.</footer>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NAHA 2027 - Sedes en CDMX</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --stone:#E7E0D1;
-    --paper:#FBF8F1;
-    --ink:#211F2C;
-    --ink-soft:#5B5768;
-    --azul:#1B3A6B;
-    --cochinilla:#9B2242;
-    --ocre:#B9822A;
-    --verde:#3F6B4C;
-    --line:#D8CFB9;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--stone);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.6;
-  }
-  h1,h2{font-family:'Fraunces', serif; font-weight:600;}
-  .talavera-strip{
-    height:14px;
-    background-image:
-      radial-gradient(circle at 7px 7px, var(--azul) 3px, transparent 3.5px),
-      radial-gradient(circle at 21px 7px, var(--ocre) 2px, transparent 2.5px);
-    background-size:28px 14px;
-    background-color:var(--paper);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-  header{
-    background:var(--paper);
-    padding:48px 24px 32px;
-  }
-  .header-inner{max-width:760px; margin:0 auto;}
-  .eyebrow{
-    text-transform:uppercase;
-    letter-spacing:0.14em;
-    font-size:12px;
-    font-weight:600;
-    color:var(--cochinilla);
-    margin-bottom:12px;
-  }
-  h1{font-size:clamp(28px,5vw,44px); margin:0 0 10px; color:var(--azul);}
-  .subtitle{font-size:16px; color:var(--ink-soft); margin:0;}
-  main{max-width:760px; margin:0 auto; padding:32px 24px 80px;}
-  h2{
-    font-size:20px;
-    color:var(--azul);
-    border-bottom:2px solid var(--line);
-    padding-bottom:8px;
-    margin-top:40px;
-  }
-  ul{list-style:none; padding:0; margin:16px 0 0;}
-  li{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:12px 16px;
-    margin-bottom:8px;
-    font-size:15px;
-  }
-  footer{text-align:center; padding:32px 24px; font-size:12px; color:var(--ink-soft);}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="header-inner">
-    <div class="eyebrow">Comite de Sede - NAHA 2027</div>
-    <h1>Sedes en Ciudad de Mexico</h1>
-    <p class="subtitle">Concentrado de espacios en evaluacion para la conferencia (6-8 de abril de 2027).</p>
-  </div>
-</header>
-<div class="talavera-strip"></div>
-
-<main>
-
-  <h2>Iconicos</h2>
-  <ul>
-    <li>Ex Convento de San Hipolito</li>
-    <li>Palacio Metropolitano</li>
-    <li>Ex Convento Regina</li>
+    <li>
+      <details>
+        <summary>Palacio Metropolitano</summary>
+        <div class="detail-body">
+          <table>
+            <tr><td>Direccion</td><td>C. de Tacuba 15, Centro Historico, Cuauhtemoc, CDMX</td></tr>
+            <tr><td>Distancia</td><td>15 min a pie desde Casa Pepe</td></tr>
+            <tr><td>Capacidad</td><td>400 banquete / 800 coctel</td></tr>
+            <tr><td>Disponibilidad</td><td>6, 7, 8 y 9 de abril (el 9 con restriccion de horario hasta 00:00)</td></tr>
+            <tr><td>Tarifa L-J y viernes</td><td>$149,000 (101-200 pax) / $189,000 (201-300 pax)</td></tr>
+            <tr><td>Tarifa sabado</td><td>$199,000 (101-200 pax) / $219,000 (201-300 pax)</td></tr>
+            <tr><td>Deposito</td><td>$35,000 (hasta 400 pax) o $50,000 (hasta 800 pax)</td></tr>
+            <tr><td>Anticipo</td><td>50% aparta fecha, liquidar 30 dias antes</td></tr>
+            <tr><td>Catering</td><td>Se puede rentar solo el venue y traer proveedores propios</td></tr>
+            <tr><td>A/V</td><td>Incluye planta de luz 100KW, seguridad, limpieza, A/C en salones principales</td></tr>
+            <tr><td>Contacto</td><td>+52 55 8036 2205 - contacto@palaciometropolitano.com.mx</td></tr>
+            <tr><td>Sitio web</td><td><a href="https://www.palaciometropolitano.com.mx/eventos" target="_blank">palaciometropolitano.com.mx</a></td></tr>
+          </table>
+          <div class="subhead">Restricciones</div>
+          <ul>
+            <li>No se permite alfombrar ni pegar nada en pisos y paredes</li>
+            <li>No se pueden desmontar candiles ni mover mobiliario del salon</li>
+            <li>Todo proveedor debe traer identificacion vigente para gafete</li>
+          </ul>
+        </div>
+      </details>
+    </li>
+    <li>
+      <details>
+        <summary>Ex Convento Regina</summary>
+        <div class="detail-body">
+          <table>
+            <tr><td>Direccion</td><td>Regina 7, Centro Historico, Cuauhtemoc, CDMX</td></tr>
+            <tr><td>Distancia</td><td>9 min a pie desde Casa Pepe</td></tr>
+            <tr><td>Tipo</td><td>Ex convento, Corredor Cultural del Centro Historico. 4 patios rentables por separado (2 cotizados)</td></tr>
+            <tr><td>Contacto</td><td>reservacionesregina@gmail.com - +52 55 3262 4532</td></tr>
+          </table>
+          <div class="subhead">Patio de los Naranjos</div>
+          <table>
+            <tr><td>Capacidad</td><td>Banquete 300 / Coctel 350 / Auditorio 400</td></tr>
+            <tr><td>Tarifa L-J</td><td>$80,000 MXN</td></tr>
+            <tr><td>Tarifa viernes</td><td>$144,000 MXN</td></tr>
+            <tr><td>Tarifa sabado</td><td>$160,000 MXN</td></tr>
+            <tr><td>Deposito</td><td>$20,000 (reembolsable)</td></tr>
+          </table>
+          <div class="subhead">Patio de San Jeronimo</div>
+          <table>
+            <tr><td>Tarifa L-J</td><td>$132,800 MXN</td></tr>
+            <tr><td>Tarifa viernes</td><td>$249,000 MXN</td></tr>
+            <tr><td>Tarifa sabado</td><td>$265,000 MXN</td></tr>
+            <tr><td>Deposito</td><td>$20,000 (reembolsable)</td></tr>
+          </table>
+          <div class="subhead">Restricciones</div>
+          <ul>
+            <li>8 horas de evento, limite 2 am (extra con costo)</li>
+            <li>Ambulancia obligatoria para mas de 250 personas</li>
+          </ul>
+        </div>
+      </details>
+    </li>
   </ul>
 
   <h2>Hoteles</h2>
