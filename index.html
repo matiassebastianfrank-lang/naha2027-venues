@@ -5,58 +5,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NAHA 2027 - Mexico City Venues</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root{--stone:#E7E0D1;--paper:#FBF8F1;--ink:#211F2C;--ink-soft:#5B5768;--azul:#1B3A6B;--cochinilla:#9B2242;--ocre:#B9822A;--verde:#3F6B4C;--line:#D8CFB9;}
+:root{--bg:#0A1620;--bg-card:#0F202B;--ink:#EAF2F5;--ink-soft:#7E97A6;--teal:#2DD4CF;--teal-soft:rgba(45,212,207,0.15);--gold:#F2B90D;--gold-soft:rgba(242,185,13,0.15);--magenta:#E0568C;--magenta-soft:rgba(224,86,140,0.15);--green:#3FD68C;--green-soft:rgba(63,214,140,0.15);--line:#1E3947;}
 *{box-sizing:border-box;}
-body{margin:0;background:var(--stone);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;}
 h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;}
-.talavera-strip{height:14px;background-image:radial-gradient(circle at 7px 7px,var(--azul) 3px,transparent 3.5px),radial-gradient(circle at 21px 7px,var(--ocre) 2px,transparent 2.5px);background-size:28px 14px;background-color:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-header{background:var(--paper);padding:48px 24px 0;}
+.talavera-strip{height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));border:none;}
+header{background:var(--bg);padding:48px 24px 0;}
 .header-inner{max-width:1000px;margin:0 auto;}
-.eyebrow{text-transform:uppercase;letter-spacing:0.14em;font-size:12px;font-weight:600;color:var(--cochinilla);margin-bottom:12px;}
-h1{font-size:clamp(28px,5vw,44px);margin:0 0 10px;color:var(--azul);}
+.eyebrow{text-transform:uppercase;letter-spacing:0.14em;font-size:12px;font-weight:600;color:var(--gold);margin-bottom:12px;}
+h1{font-size:clamp(28px,5vw,44px);margin:0 0 10px;color:var(--ink);}
 .subtitle{font-size:16px;color:var(--ink-soft);margin:0;max-width:640px;}
 .fx-note{font-size:12px;color:var(--ink-soft);margin:10px 0 0;font-style:italic;}
 .stats-bar{display:flex;gap:48px;flex-wrap:wrap;padding:28px 0;margin-top:16px;border-top:1px solid var(--line);}
-.stat-block .num{font-family:'Fraunces',serif;font-size:28px;color:var(--azul);font-weight:600;}
+.stat-block .num{font-family:'IBM Plex Mono',monospace;font-size:26px;color:var(--teal);font-weight:600;}
 .stat-block .label{font-size:12px;color:var(--ink-soft);margin-top:2px;}
 main{max-width:1000px;margin:0 auto;padding:32px 24px 80px;}
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
-.chip{padding:8px 16px;border-radius:20px;border:1px solid var(--line);background:var(--paper);font-size:13px;font-weight:500;cursor:pointer;color:var(--ink);}
-.chip.active{background:var(--azul);color:#fff;border-color:var(--azul);}
-.chip .count{opacity:0.65;margin-left:4px;}
+.chip{padding:8px 16px;border-radius:20px;border:1px solid var(--line);background:var(--bg-card);font-size:13px;font-weight:500;cursor:pointer;color:var(--ink-soft);}
+.chip.active{background:var(--teal);color:var(--bg);border-color:var(--teal);font-weight:600;}
+.chip .count{opacity:0.7;margin-left:4px;}
 .venue-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
 @media (max-width:680px){.venue-grid{grid-template-columns:1fr;}}
-.venue-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(33,31,44,0.05);}
-.card-bar{height:5px;background:var(--azul);}
-.venue-card[data-cat="hotel"] .card-bar{background:var(--ocre);}
-.venue-card[data-cat="otro"] .card-bar{background:var(--verde);}
-.venue-card[data-cat="residencial"] .card-bar{background:var(--cochinilla);}
+.venue-card{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.35);}
+.card-bar{height:4px;background:var(--teal);}
+.venue-card[data-cat="hotel"] .card-bar{background:var(--gold);}
+.venue-card[data-cat="otro"] .card-bar{background:var(--green);}
+.venue-card[data-cat="residencial"] .card-bar{background:var(--magenta);}
+.venue-card[data-cat="iconico"] .card-bar{background:var(--teal);}
 .card-body{padding:20px;}
 .card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
 .card-header h3{font-size:19px;margin:0;color:var(--ink);}
 .badge{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;padding:4px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
-.badge.complete{background:#DCE8DE;color:var(--verde);}
-.badge.partial{background:#F3E2C2;color:var(--ocre);}
+.badge.complete{background:var(--teal-soft);color:var(--teal);}
+.badge.partial{background:var(--gold-soft);color:var(--gold);}
 .card-desc{font-size:14px;color:var(--ink-soft);margin:10px 0 16px;}
 .quick-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-bottom:16px;border-bottom:1px dashed var(--line);margin-bottom:14px;}
 .stat-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-soft);margin-bottom:3px;}
-.stat-value{display:block;font-size:13px;color:var(--ink);font-weight:500;}
-.detail-btn{display:block;text-align:center;padding:10px;border:1px solid var(--azul);border-radius:8px;color:var(--azul);font-weight:600;font-size:14px;cursor:pointer;list-style:none;}
+.stat-value{display:block;font-size:13px;color:var(--ink);font-weight:500;font-family:'IBM Plex Mono',monospace;}
+.detail-btn{display:block;text-align:center;padding:10px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-weight:600;font-size:14px;cursor:pointer;list-style:none;background:transparent;}
 .detail-btn::-webkit-details-marker{display:none;}
-.detail-btn:hover{background:var(--azul);color:#fff;}
-details[open] .detail-btn{background:var(--azul);color:#fff;margin-bottom:14px;}
+.detail-btn:hover{background:var(--gold);color:var(--bg);}
+details[open] .detail-btn{background:var(--gold);color:var(--bg);margin-bottom:14px;}
 .detail-body table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;}
-.detail-body td{padding:6px 0;vertical-align:top;border-bottom:1px solid var(--line);}
+.detail-body td{padding:6px 0;vertical-align:top;border-bottom:1px solid var(--line);color:var(--ink);}
 .detail-body td:first-child{width:36%;color:var(--ink-soft);padding-right:10px;}
 .detail-body tr:last-child td{border-bottom:none;}
 .detail-body ul{list-style:disc;padding-left:18px;margin:6px 0 0;}
-.detail-body ul li{padding:2px 0;margin:0;font-size:13px;}
+.detail-body ul li{padding:2px 0;margin:0;font-size:13px;color:var(--ink);}
 .subhead{font-size:13px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.04em;margin:14px 0 4px;}
 .photo-strip{display:flex;gap:8px;overflow-x:auto;padding:10px 0 4px;margin:0;}
-.photo-strip img{height:120px;width:auto;border-radius:8px;object-fit:cover;flex-shrink:0;border:1px solid var(--line);}
-footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);}
+.photo-strip img{height:120px;width:auto;border-radius:10px;object-fit:cover;flex-shrink:0;border:1px solid var(--line);}
+footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);}
 </style>
 </head>
 <body>
@@ -120,28 +121,6 @@ footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);
 <div class="subhead">Note</div>
 <ul>
 <li>Confirm availability and terms for the 150-guest room</li>
-</ul>
-</div>
-</details>
-</div>
-</div>
-
-<div class="venue-card" data-cat="hotel">
-<div class="card-bar"></div>
-<div class="card-body">
-<div class="card-header"><h3>Fiesta Inn Centro Historico</h3><span class="badge partial">Partial info</span></div>
-<p class="card-desc">Posadas chain, Historic Center</p>
-<div class="quick-stats">
-<div><span class="stat-label">Capacity</span><span class="stat-value">Unconfirmed</span></div>
-<div><span class="stat-label">Price (2 days)</span><span class="stat-value">Not quoted</span></div>
-<div><span class="stat-label">Distance</span><span class="stat-value">24 min</span></div>
-</div>
-<details open>
-<summary class="detail-btn">View details & comments</summary>
-<div class="detail-body">
-<ul>
-<li>Contact: grupos@posadas.com</li>
-<li>Quote, capacity and availability still pending</li>
 </ul>
 </div>
 </details>
@@ -246,6 +225,28 @@ footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);
 <li>Breakfast: $26-$41 USD/person depending on package</li>
 <li>Lunch/dinner: $26-$37 USD/person</li>
 <li>Coffee breaks: $18-$38 USD depending on duration</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+
+<div class="venue-card" data-cat="hotel">
+<div class="card-bar"></div>
+<div class="card-body">
+<div class="card-header"><h3>Fiesta Inn Centro Historico</h3><span class="badge partial">Partial info</span></div>
+<p class="card-desc">Posadas chain, Historic Center</p>
+<div class="quick-stats">
+<div><span class="stat-label">Capacity</span><span class="stat-value">Unconfirmed</span></div>
+<div><span class="stat-label">Price (2 days)</span><span class="stat-value">Not quoted</span></div>
+<div><span class="stat-label">Distance</span><span class="stat-value">24 min</span></div>
+</div>
+<details open>
+<summary class="detail-btn">View details & comments</summary>
+<div class="detail-body">
+<ul>
+<li>Contact: grupos@posadas.com</li>
+<li>Quote, capacity and availability still pending</li>
 </ul>
 </div>
 </details>
