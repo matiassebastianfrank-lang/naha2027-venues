@@ -56,8 +56,13 @@ details[open] .detail-btn{background:var(--gold);color:var(--bg);margin-bottom:1
 .detail-body ul li{padding:2px 0;margin:0;font-size:13px;color:var(--ink);}
 .subhead{font-size:13px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.04em;margin:14px 0 4px;}
 .photo-strip{display:flex;gap:8px;overflow-x:auto;padding:10px 0 4px;margin:0;}
-.photo-strip img{height:120px;width:auto;border-radius:10px;object-fit:cover;flex-shrink:0;border:1px solid var(--line);}
+.photo-strip img{height:120px;width:auto;border-radius:10px;object-fit:cover;flex-shrink:0;border:1px solid var(--line);cursor:zoom-in;transition:opacity 0.15s;}
+.photo-strip img:hover{opacity:0.85;}
 footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(5,10,15,0.92);z-index:999;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6);}
+.lightbox-close{position:fixed;top:20px;right:24px;color:var(--ink);font-size:32px;font-family:sans-serif;cursor:pointer;z-index:1000;}
 </style>
 </head>
 <body>
@@ -270,6 +275,17 @@ footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);
 <tr><td>Capacity</td><td>140 guests</td></tr>
 <tr><td>Price for 2 days</td><td>$500 USD total</td></tr>
 </table>
+<div class="subhead">Catering Comparison (150 guests, coffee break + lunch, 2 days)</div>
+<table>
+<tr><td>Coffee break (2 days)</td><td>$792 USD quoted (Ana Morita) vs ~$519 USD cheapest alternative found (Mitchfer, ~$3.11/pax)</td></tr>
+<tr><td>Lunch (2 days)</td><td>$3,524 USD quoted (Ana Morita) vs ~$1,140 USD cheapest alternative found (Lety Taquiza, ~$4.05/pax)</td></tr>
+<tr><td>Total quoted (Ana Morita)</td><td>$4,316 USD for coffee break + lunch, 2 days</td></tr>
+<tr><td>Potential savings</td><td>~$2,657 USD if switching to independent vendors</td></tr>
+</table>
+<ul>
+<li>Lunch is where the biggest gap is, even at 150 guests</li>
+<li>Confirm the venue's catering exclusivity policy before assuming outside vendor savings are achievable</li>
+</ul>
 <div class="photo-strip">
 <img src="images/VIRREYES/VIRREYES_01.jpg" alt="Virreyes 1">
 <img src="images/VIRREYES/VIRREYES_02.jpg" alt="Virreyes 2">
@@ -446,6 +462,11 @@ footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);
 
 <footer>Organizing committee document by Che Hostels for NAHA 2027.</footer>
 
+<div class="lightbox" id="lightbox">
+<span class="lightbox-close">&times;</span>
+<img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
 document.querySelectorAll('.chip').forEach(function(chip){
 chip.addEventListener('click',function(){
@@ -456,6 +477,15 @@ document.querySelectorAll('.venue-card').forEach(function(card){
 card.style.display=(card.getAttribute('data-cat')===cat)?'':'none';
 });
 });
+});
+document.querySelectorAll('.photo-strip img').forEach(function(img){
+img.addEventListener('click',function(){
+document.getElementById('lightbox-img').src=img.src;
+document.getElementById('lightbox').classList.add('open');
+});
+});
+document.getElementById('lightbox').addEventListener('click',function(){
+this.classList.remove('open');
 });
 </script>
 
