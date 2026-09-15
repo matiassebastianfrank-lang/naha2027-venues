@@ -65,6 +65,10 @@ footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);
 .lightbox.open{display:flex;}
 .lightbox img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6);}
 .lightbox-close{position:fixed;top:20px;right:24px;color:var(--ink);font-size:32px;font-family:sans-serif;cursor:pointer;z-index:1000;}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);color:var(--ink);font-size:48px;font-family:sans-serif;cursor:pointer;z-index:1000;padding:12px 20px;user-select:none;}
+.lightbox-nav:hover{color:var(--gold);}
+.lightbox-prev{left:6px;}
+.lightbox-next{right:6px;}
 </style>
 </head>
 <body>
@@ -79,7 +83,7 @@ footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);
 <div class="stat-block"><div class="num">18</div><div class="label">options being tracked</div></div>
 <div class="stat-block"><div class="num">$500-$30.5k</div><div class="label">USD for 2 days (range)</div></div>
 <div class="stat-block"><div class="num">150</div><div class="label">estimated NAHA attendees</div></div>
-<div class="stat-block"><div class="num">Sep 3, 2026</div><div class="label">last updated</div></div>
+<div class="stat-block"><div class="num">Sep 14, 2026</div><div class="label">last updated</div></div>
 </div>
 </div>
 </header>
@@ -796,7 +800,9 @@ footer{text-align:center;padding:32px 24px;font-size:12px;color:var(--ink-soft);
 
 <div class="lightbox" id="lightbox">
 <span class="lightbox-close">&times;</span>
+<span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#8249;</span>
 <img id="lightbox-img" src="" alt="">
+<span class="lightbox-nav lightbox-next" id="lightbox-next">&#8250;</span>
 </div>
 
 <script>
@@ -810,11 +816,36 @@ card.style.display=(card.getAttribute('data-cat')===cat)?'':'none';
 });
 });
 });
+var currentPhotos=[];
+var currentIndex=0;
+function showLightboxImage(){
+document.getElementById('lightbox-img').src=currentPhotos[currentIndex].src;
+}
 document.querySelectorAll('.photo-strip img').forEach(function(img){
-img.addEventListener('click',function(){
-document.getElementById('lightbox-img').src=img.src;
+img.addEventListener('click',function(e){
+e.stopPropagation();
+var strip=img.closest('.photo-strip');
+currentPhotos=Array.from(strip.querySelectorAll('img'));
+currentIndex=currentPhotos.indexOf(img);
+showLightboxImage();
 document.getElementById('lightbox').classList.add('open');
 });
+});
+document.getElementById('lightbox-prev').addEventListener('click',function(e){
+e.stopPropagation();
+currentIndex=(currentIndex-1+currentPhotos.length)%currentPhotos.length;
+showLightboxImage();
+});
+document.getElementById('lightbox-next').addEventListener('click',function(e){
+e.stopPropagation();
+currentIndex=(currentIndex+1)%currentPhotos.length;
+showLightboxImage();
+});
+document.addEventListener('keydown',function(e){
+if(!document.getElementById('lightbox').classList.contains('open'))return;
+if(e.key==='ArrowLeft'){currentIndex=(currentIndex-1+currentPhotos.length)%currentPhotos.length;showLightboxImage();}
+if(e.key==='ArrowRight'){currentIndex=(currentIndex+1)%currentPhotos.length;showLightboxImage();}
+if(e.key==='Escape'){document.getElementById('lightbox').classList.remove('open');}
 });
 document.getElementById('lightbox').addEventListener('click',function(){
 this.classList.remove('open');
